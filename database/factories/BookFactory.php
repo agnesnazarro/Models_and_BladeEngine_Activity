@@ -17,7 +17,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'isbn' => fake()->regexify('[A-Za-z0-9]{13}'),
+            'title' => fake()->sentence(),
+            'author' => fake()->name(),
+            'description' => fake()->paragraph(),
+            'date_published' => fake()->date(),
         ];
     }
 }
