@@ -17,10 +17,10 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'isbn' => fake()->regexify('[A-Za-z0-9]{13}'),
-            'title' => fake()->sentence(),
+            'isbn' => rand(0,1) ? fake()->isbn10() : fake()->isbn13(),
+            'title' => ucfirst(fake()->words(rand(1, 5), true)),
             'author' => fake()->name(),
-            'description' => fake()->paragraph(),
+            'description' => fake()->paragraph(2),
             'date_published' => fake()->date(),
         ];
     }
